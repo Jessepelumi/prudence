@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:prudence/core/utils/colors.dart';
+import 'package:prudence/core/utils/helper_functions.dart';
 import 'package:prudence/router/navigation_provider.dart';
 import 'package:prudence/views/dashboard/dashboard_view.dart';
 import 'package:prudence/views/manage/manage_view.dart';
@@ -13,6 +14,8 @@ class Navigation extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final dark = HelperFunctions.isDarkMode(context);
+
     final screens = [
       const DashboardView(),
       const TaskListView(),
@@ -26,7 +29,7 @@ class Navigation extends ConsumerWidget {
       bottomNavigationBar: NavigationBar(
         height: 80,
         elevation: 10,
-        backgroundColor: white,
+        backgroundColor: dark ? darkGrey : lightGrey,
         indicatorColor: Colors.transparent,
         selectedIndex: indexNavigation,
         onDestinationSelected: (value) {
@@ -38,13 +41,17 @@ class Navigation extends ConsumerWidget {
               labelTextStyle: WidgetStateProperty.resolveWith(
                 (states) => states.contains(WidgetState.selected)
                     ? const TextStyle(color: primary)
-                    : const TextStyle(color: darkGrey),
+                    : TextStyle(color: dark ? softGrey : darkGrey),
               ),
             ),
             child: NavigationDestination(
               icon: PhosphorIcon(
                 PhosphorIconsBold.squaresFour,
-                color: indexNavigation == 0 ? primary : darkGrey,
+                color: indexNavigation == 0
+                    ? primary
+                    : dark
+                        ? softGrey
+                        : darkGrey,
               ),
               label: "Dash",
             ),
@@ -56,13 +63,17 @@ class Navigation extends ConsumerWidget {
               labelTextStyle: WidgetStateProperty.resolveWith(
                 (states) => states.contains(WidgetState.selected)
                     ? const TextStyle(color: primary)
-                    : const TextStyle(color: darkGrey),
+                    : TextStyle(color: dark ? softGrey : darkGrey),
               ),
             ),
             child: NavigationDestination(
               icon: PhosphorIcon(
                 PhosphorIconsBold.checkSquare,
-                color: indexNavigation == 1 ? primary : darkGrey,
+                color: indexNavigation == 1
+                    ? primary
+                    : dark
+                        ? softGrey
+                        : darkGrey,
               ),
               label: "Tasks",
             ),
@@ -74,13 +85,17 @@ class Navigation extends ConsumerWidget {
               labelTextStyle: WidgetStateProperty.resolveWith(
                 (states) => states.contains(WidgetState.selected)
                     ? const TextStyle(color: primary)
-                    : const TextStyle(color: darkGrey),
+                    : TextStyle(color: dark ? softGrey : darkGrey),
               ),
             ),
             child: NavigationDestination(
               icon: PhosphorIcon(
                 PhosphorIconsBold.notePencil,
-                color: indexNavigation == 2 ? primary : darkGrey,
+                color: indexNavigation == 2
+                    ? primary
+                    : dark
+                        ? softGrey
+                        : darkGrey,
               ),
               label: "Notes",
             ),
@@ -92,13 +107,17 @@ class Navigation extends ConsumerWidget {
               labelTextStyle: WidgetStateProperty.resolveWith(
                 (states) => states.contains(WidgetState.selected)
                     ? const TextStyle(color: primary)
-                    : const TextStyle(color: darkGrey),
+                    : TextStyle(color: dark ? softGrey : darkGrey),
               ),
             ),
             child: NavigationDestination(
               icon: PhosphorIcon(
                 PhosphorIconsBold.nut,
-                color: indexNavigation == 3 ? primary : darkGrey,
+                color: indexNavigation == 3
+                    ? primary
+                    : dark
+                        ? softGrey
+                        : darkGrey,
               ),
               label: "Manage",
             ),
