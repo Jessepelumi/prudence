@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:prudence/core/utils/colors.dart';
 import 'package:prudence/router/navigation_provider.dart';
 import 'package:prudence/views/dashboard/dashboard_view.dart';
 import 'package:prudence/views/manage/manage_view.dart';
@@ -35,16 +36,14 @@ class Navigation extends ConsumerWidget {
             data: NavigationBarThemeData(
               labelTextStyle: WidgetStateProperty.resolveWith(
                 (states) => states.contains(WidgetState.selected)
-                    ? TextStyle(color: Colors.purple[800])
-                    : TextStyle(color: Colors.grey[800]),
+                    ? const TextStyle(color: primary)
+                    : const TextStyle(color: darkGrey),
               ),
             ),
             child: NavigationDestination(
               icon: PhosphorIcon(
                 PhosphorIconsBold.squaresFour,
-                color: indexNavigation == 0
-                    ? Colors.purple[800]
-                    : Colors.grey[800],
+                color: indexNavigation == 0 ? primary : darkGrey,
               ),
               label: "Dash",
             ),
@@ -55,16 +54,14 @@ class Navigation extends ConsumerWidget {
             data: NavigationBarThemeData(
               labelTextStyle: WidgetStateProperty.resolveWith(
                 (states) => states.contains(WidgetState.selected)
-                    ? TextStyle(color: Colors.purple[800])
-                    : TextStyle(color: Colors.grey[800]),
+                    ? const TextStyle(color: primary)
+                    : const TextStyle(color: darkGrey),
               ),
             ),
             child: NavigationDestination(
               icon: PhosphorIcon(
                 PhosphorIconsBold.checkSquare,
-                color: indexNavigation == 1
-                    ? Colors.purple[800]
-                    : Colors.grey[800],
+                color: indexNavigation == 1 ? primary : darkGrey,
               ),
               label: "Tasks",
             ),
@@ -75,16 +72,14 @@ class Navigation extends ConsumerWidget {
             data: NavigationBarThemeData(
               labelTextStyle: WidgetStateProperty.resolveWith(
                 (states) => states.contains(WidgetState.selected)
-                    ? TextStyle(color: Colors.purple[800])
-                    : TextStyle(color: Colors.grey[800]),
+                    ? const TextStyle(color: primary)
+                    : const TextStyle(color: darkGrey),
               ),
             ),
             child: NavigationDestination(
               icon: PhosphorIcon(
                 PhosphorIconsBold.notePencil,
-                color: indexNavigation == 2
-                    ? Colors.purple[800]
-                    : Colors.grey[800],
+                color: indexNavigation == 2 ? primary : darkGrey,
               ),
               label: "Notes",
             ),
@@ -95,16 +90,14 @@ class Navigation extends ConsumerWidget {
             data: NavigationBarThemeData(
               labelTextStyle: WidgetStateProperty.resolveWith(
                 (states) => states.contains(WidgetState.selected)
-                    ? TextStyle(color: Colors.purple[800])
-                    : TextStyle(color: Colors.grey[800]),
+                    ? const TextStyle(color: primary)
+                    : const TextStyle(color: darkGrey),
               ),
             ),
             child: NavigationDestination(
               icon: PhosphorIcon(
                 PhosphorIconsBold.nut,
-                color: indexNavigation == 3
-                    ? Colors.purple[800]
-                    : Colors.grey[800],
+                color: indexNavigation == 3 ? primary : darkGrey,
               ),
               label: "Manage",
             ),
