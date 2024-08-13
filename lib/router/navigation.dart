@@ -26,6 +26,7 @@ class Navigation extends ConsumerWidget {
       bottomNavigationBar: NavigationBar(
         height: 80,
         elevation: 10,
+        backgroundColor: white,
         indicatorColor: Colors.transparent,
         selectedIndex: indexNavigation,
         onDestinationSelected: (value) {
