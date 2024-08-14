@@ -40,18 +40,16 @@ class Navigation extends ConsumerWidget {
             data: NavigationBarThemeData(
               labelTextStyle: WidgetStateProperty.resolveWith(
                 (states) => states.contains(WidgetState.selected)
-                    ? const TextStyle(color: primary)
-                    : TextStyle(color: dark ? softGrey : darkGrey),
+                    ? const TextStyle(fontWeight: FontWeight.bold)
+                    : const TextStyle(fontWeight: FontWeight.normal),
               ),
             ),
-            child: NavigationDestination(
+            child: const NavigationDestination(
               icon: PhosphorIcon(
                 PhosphorIconsBold.squaresFour,
-                color: indexNavigation == 0
-                    ? primary
-                    : dark
-                        ? softGrey
-                        : darkGrey,
+              ),
+              selectedIcon: PhosphorIcon(
+                PhosphorIconsFill.squaresFour,
               ),
               label: "Dash",
             ),
@@ -62,18 +60,16 @@ class Navigation extends ConsumerWidget {
             data: NavigationBarThemeData(
               labelTextStyle: WidgetStateProperty.resolveWith(
                 (states) => states.contains(WidgetState.selected)
-                    ? const TextStyle(color: primary)
-                    : TextStyle(color: dark ? softGrey : darkGrey),
+                    ? const TextStyle(fontWeight: FontWeight.bold)
+                    : const TextStyle(fontWeight: FontWeight.normal),
               ),
             ),
-            child: NavigationDestination(
+            child: const NavigationDestination(
               icon: PhosphorIcon(
                 PhosphorIconsBold.checkSquare,
-                color: indexNavigation == 1
-                    ? primary
-                    : dark
-                        ? softGrey
-                        : darkGrey,
+              ),
+              selectedIcon: PhosphorIcon(
+                PhosphorIconsFill.checkSquare,
               ),
               label: "Tasks",
             ),
@@ -84,18 +80,16 @@ class Navigation extends ConsumerWidget {
             data: NavigationBarThemeData(
               labelTextStyle: WidgetStateProperty.resolveWith(
                 (states) => states.contains(WidgetState.selected)
-                    ? const TextStyle(color: primary)
-                    : TextStyle(color: dark ? softGrey : darkGrey),
+                    ? const TextStyle(fontWeight: FontWeight.bold)
+                    : const TextStyle(fontWeight: FontWeight.normal),
               ),
             ),
-            child: NavigationDestination(
+            child: const NavigationDestination(
               icon: PhosphorIcon(
-                PhosphorIconsBold.notePencil,
-                color: indexNavigation == 2
-                    ? primary
-                    : dark
-                        ? softGrey
-                        : darkGrey,
+                PhosphorIconsBold.notebook,
+              ),
+              selectedIcon: PhosphorIcon(
+                PhosphorIconsFill.notebook,
               ),
               label: "Notes",
             ),
@@ -106,18 +100,16 @@ class Navigation extends ConsumerWidget {
             data: NavigationBarThemeData(
               labelTextStyle: WidgetStateProperty.resolveWith(
                 (states) => states.contains(WidgetState.selected)
-                    ? const TextStyle(color: primary)
-                    : TextStyle(color: dark ? softGrey : darkGrey),
+                    ? const TextStyle(fontWeight: FontWeight.bold)
+                    : const TextStyle(fontWeight: FontWeight.normal),
               ),
             ),
-            child: NavigationDestination(
+            child: const NavigationDestination(
               icon: PhosphorIcon(
                 PhosphorIconsBold.nut,
-                color: indexNavigation == 3
-                    ? primary
-                    : dark
-                        ? softGrey
-                        : darkGrey,
+              ),
+              selectedIcon: PhosphorIcon(
+                PhosphorIconsFill.nut,
               ),
               label: "Manage",
             ),
