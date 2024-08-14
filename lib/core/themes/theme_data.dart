@@ -15,8 +15,8 @@ class AppThemeData {
     scaffoldBackgroundColor: white,
     textTheme: AppTextTheme.lightTextTheme,
     appBarTheme: const AppBarTheme(
-      backgroundColor: lightGrey,
-      surfaceTintColor: lightGrey,
+      backgroundColor: white,
+      surfaceTintColor: white,
     ),
   );
 
