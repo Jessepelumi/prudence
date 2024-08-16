@@ -11,7 +11,6 @@ class AppThemeData {
     useMaterial3: true,
     fontFamily: GoogleFonts.spaceGrotesk().fontFamily,
     brightness: Brightness.light,
-    primaryColor: primary,
     scaffoldBackgroundColor: white,
     textTheme: AppTextTheme.lightTextTheme,
     appBarTheme: const AppBarTheme(
@@ -25,7 +24,6 @@ class AppThemeData {
     useMaterial3: true,
     fontFamily: GoogleFonts.spaceGrotesk().fontFamily,
     brightness: Brightness.dark,
-    primaryColor: primary,
     scaffoldBackgroundColor: black,
     textTheme: AppTextTheme.darkTextTheme,
     appBarTheme: const AppBarTheme(
