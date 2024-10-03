@@ -3,8 +3,10 @@ import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:prudence/core/utils/colors.dart';
 import 'package:prudence/core/utils/helper_functions.dart';
 import 'package:prudence/core/utils/sizes.dart';
+import 'package:prudence/models/note/dummy_note_sum.dart';
 import 'package:prudence/views/note/note_entry_view.dart';
-import 'package:prudence/views/note/note_tile_view.dart';
+import 'package:prudence/views/note/widgets/note_tile_view.dart';
+import 'package:prudence/views/note/widgets/section_header.dart';
 import 'package:prudence/views/shared/page_appbar.dart';
 
 class NoteListView extends StatelessWidget {
@@ -13,6 +15,8 @@ class NoteListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final dark = HelperFunctions.isDarkMode(context);
+
+    final List<NoteSummary> summaries = NoteSummary.noteSummary;
 
     return Scaffold(
       appBar: PageAppbar(
@@ -31,58 +35,43 @@ class NoteListView extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: medium),
-            child: Column(
-              children: [
-                NoteTile(
-                  title: "That Old Man",
-                  details:
-                      "Apostle Emmanuel Iren. That old man message. Spiritua growth. Putting off the old man and his deeds.",
-                  timeStamp: "01:42 AM - 16 August",
-                  isTagged: true,
-                  color: Colors.red,
-                  onTap: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const NoteEntry(),
-                    ),
+          padding: const EdgeInsets.symmetric(horizontal: medium),
+          child: Column(
+            children: [
+              const NoteSectionHeader(month: "October, 2024"),
+              Container(
+                padding: const EdgeInsets.all(medium),
+                decoration: BoxDecoration(
+                  color: dark ? darkGrey : lightGrey,
+                  //boxShadow: [ShadowStyle(context).customShadow],
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(small),
                   ),
-                  //isFavorite: true,
                 ),
-                const SizedBox(height: 16),
-                NoteTile(
-                  title: "The Convergence",
-                  details:
-                      "Isaiah 60:1-2. Influence and power. God wants to partner with us for the expansion of His Kingdom.",
-                  timeStamp: "11:11 AM - 15 August",
-                  isTagged: false,
-                  onTap: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const NoteEntry(),
-                    ),
-                  ),
-                  isFavorite: true,
+                child: Column(
+                  children: List.generate(summaries.length, (index) {
+                    final summary = summaries[index];
+                    return Column(
+                      children: [
+                        NoteTile(
+                          title: summary.title,
+                          details: summary.detail,
+                          timeStamp: summary.timeStamp,
+                          onTap: () {},
+                        ),
+                        // Only add Divider if it's not the last item
+                        if (index != summaries.length - 1) const Divider(),
+                      ],
+                    );
+                  }),
                 ),
-                const SizedBox(height: 16),
-                NoteTile(
-                  title: "Environment for Success",
-                  details:
-                      "Abraham - Genesis 12. 3 John 1:2. Purpose is that one thing that we must succeed at, else every other thing we succeed at doesn't matter.",
-                  timeStamp: "04:31 PM - 23 July",
-                  isTagged: true,
-                  color: Colors.purple,
-                  onTap: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const NoteEntry(),
-                    ),
-                  ),
-                  isFavorite: true,
-                ),
-              ],
-            )),
+              ),
+            ],
+          ),
+        ),
       ),
+
+      // new note
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.push(
           context,
