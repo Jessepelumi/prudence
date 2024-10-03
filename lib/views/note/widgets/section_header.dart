@@ -5,9 +5,13 @@ class NoteSectionHeader extends StatefulWidget {
   const NoteSectionHeader({
     super.key,
     required this.month,
+    required this.isCollapsed,
+    required this.onToggle,
   });
 
   final String month;
+  final bool isCollapsed;
+  final VoidCallback onToggle;
 
   @override
   State<NoteSectionHeader> createState() => _NoteSectionHeaderState();
@@ -26,9 +30,9 @@ class _NoteSectionHeaderState extends State<NoteSectionHeader> {
             style: Theme.of(context).textTheme.titleMedium,
           ),
           GestureDetector(
-            onTap: () {},
+            onTap: widget.onToggle,
             child: Text(
-              "Collapse",
+              widget.isCollapsed ? "Expand" : "Collapse",
               style: Theme.of(context)
                   .textTheme
                   .labelMedium
