@@ -9,8 +9,21 @@ import 'package:prudence/views/note/widgets/note_tile_view.dart';
 import 'package:prudence/views/note/widgets/section_header.dart';
 import 'package:prudence/views/shared/page_appbar.dart';
 
-class NoteListView extends StatelessWidget {
+class NoteListView extends StatefulWidget {
   const NoteListView({super.key});
+
+  @override
+  State<NoteListView> createState() => _NoteListViewState();
+}
+
+class _NoteListViewState extends State<NoteListView> {
+  bool isCollapsed = false;
+
+  void toggleCollapse() {
+    setState(() {
+      isCollapsed = !isCollapsed;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,34 +51,92 @@ class NoteListView extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: medium),
           child: Column(
             children: [
-              const NoteSectionHeader(month: "October, 2024"),
-              Container(
-                padding: const EdgeInsets.all(medium),
-                decoration: BoxDecoration(
-                  color: dark ? darkGrey : lightGrey,
-                  //boxShadow: [ShadowStyle(context).customShadow],
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(small),
+              NoteSectionHeader(
+                month: "October, 2024",
+                isCollapsed: isCollapsed,
+                onToggle: toggleCollapse,
+              ),
+              if (!isCollapsed)
+                Container(
+                  padding: const EdgeInsets.all(medium),
+                  decoration: BoxDecoration(
+                    color: dark ? darkGrey : lightGrey,
+                    //boxShadow: [ShadowStyle(context).customShadow],
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(small),
+                    ),
+                  ),
+                  child: Column(
+                    children: List.generate(summaries.length, (index) {
+                      final summary = summaries[index];
+                      return Column(
+                        children: [
+                          NoteTile(
+                            title: summary.title,
+                            details: summary.detail,
+                            timeStamp: summary.timeStamp,
+                            onTap: () {},
+                          ),
+                          if (index != summaries.length - 1) const Divider(),
+                        ],
+                      );
+                    }),
                   ),
                 ),
-                child: Column(
-                  children: List.generate(summaries.length, (index) {
-                    final summary = summaries[index];
-                    return Column(
-                      children: [
-                        NoteTile(
-                          title: summary.title,
-                          details: summary.detail,
-                          timeStamp: summary.timeStamp,
-                          onTap: () {},
-                        ),
-                        // Only add Divider if it's not the last item
-                        if (index != summaries.length - 1) const Divider(),
-                      ],
-                    );
-                  }),
-                ),
-              ),
+              // const NoteSectionHeader(month: "September, 2024"),
+              // Container(
+              //   padding: const EdgeInsets.all(medium),
+              //   decoration: BoxDecoration(
+              //     color: dark ? darkGrey : lightGrey,
+              //     //boxShadow: [ShadowStyle(context).customShadow],
+              //     borderRadius: const BorderRadius.all(
+              //       Radius.circular(small),
+              //     ),
+              //   ),
+              //   child: Column(
+              //     children: List.generate(summaries.length, (index) {
+              //       final summary = summaries[index];
+              //       return Column(
+              //         children: [
+              //           NoteTile(
+              //             title: summary.title,
+              //             details: summary.detail,
+              //             timeStamp: summary.timeStamp,
+              //             onTap: () {},
+              //           ),
+              //           if (index != summaries.length - 1) const Divider(),
+              //         ],
+              //       );
+              //     }),
+              //   ),
+              // ),
+              // const NoteSectionHeader(month: "August, 2024"),
+              // Container(
+              //   padding: const EdgeInsets.all(medium),
+              //   decoration: BoxDecoration(
+              //     color: dark ? darkGrey : lightGrey,
+              //     //boxShadow: [ShadowStyle(context).customShadow],
+              //     borderRadius: const BorderRadius.all(
+              //       Radius.circular(small),
+              //     ),
+              //   ),
+              //   child: Column(
+              //     children: List.generate(summaries.length, (index) {
+              //       final summary = summaries[index];
+              //       return Column(
+              //         children: [
+              //           NoteTile(
+              //             title: summary.title,
+              //             details: summary.detail,
+              //             timeStamp: summary.timeStamp,
+              //             onTap: () {},
+              //           ),
+              //           if (index != summaries.length - 1) const Divider(),
+              //         ],
+              //       );
+              //     }),
+              //   ),
+              // ),
             ],
           ),
         ),
