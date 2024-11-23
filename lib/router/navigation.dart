@@ -51,7 +51,7 @@ class Navigation extends ConsumerWidget {
               selectedIcon: PhosphorIcon(
                 PhosphorIconsFill.squaresFour,
               ),
-              label: "Dash",
+              label: "Home",
             ),
           ),
 
@@ -86,10 +86,10 @@ class Navigation extends ConsumerWidget {
             ),
             child: const NavigationDestination(
               icon: PhosphorIcon(
-                PhosphorIconsBold.notebook,
+                PhosphorIconsBold.stack,
               ),
               selectedIcon: PhosphorIcon(
-                PhosphorIconsFill.notebook,
+                PhosphorIconsFill.stack,
               ),
               label: "Notes",
             ),
