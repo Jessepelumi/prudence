@@ -27,7 +27,7 @@ class Navigation extends ConsumerWidget {
 
     return Scaffold(
       bottomNavigationBar: NavigationBar(
-        height: 80,
+        height: 65,
         elevation: 10,
         backgroundColor: dark ? darkGrey : lightGrey,
         indicatorColor: Colors.transparent,
