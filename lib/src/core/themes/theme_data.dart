@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:prudence/src/core/themes/text_theme.dart';
 import 'package:prudence/src/core/utils/colors.dart';
 
@@ -9,7 +8,6 @@ class AppThemeData {
   // light theme
   static ThemeData lightTheme = ThemeData(
     useMaterial3: true,
-    fontFamily: GoogleFonts.spaceGrotesk().fontFamily,
     brightness: Brightness.light,
     scaffoldBackgroundColor: white,
     textTheme: AppTextTheme.lightTextTheme,
@@ -22,7 +20,6 @@ class AppThemeData {
   // dark theme
   static ThemeData darkTheme = ThemeData(
     useMaterial3: true,
-    fontFamily: GoogleFonts.spaceGrotesk().fontFamily,
     brightness: Brightness.dark,
     scaffoldBackgroundColor: black,
     textTheme: AppTextTheme.darkTextTheme,
