@@ -5,7 +5,7 @@ const white = Color(0xFFFFFFFF);
 const black = Color(0xFF171817);
 
 // grey
-const darkGrey = Color(0xFF45474B);
+const darkGrey = Color(0xFF222222);
 const lightGrey = Color(0xFFF5F5F5);
 const softGrey = Color(0xFFB4B4B8);
 
