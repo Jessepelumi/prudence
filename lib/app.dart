@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:prudence/core/themes/theme_data.dart';
-import 'package:prudence/router/navigation.dart';
+import 'package:prudence/src/core/themes/theme_data.dart';
+import 'package:prudence/src/router/navigation.dart';
 
 class App extends StatelessWidget {
   const App({super.key});

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
-import 'package:prudence/core/utils/colors.dart';
-import 'package:prudence/core/utils/helper_functions.dart';
-import 'package:prudence/core/utils/sizes.dart';
-import 'package:prudence/models/note/dummy_note_sum.dart';
-import 'package:prudence/views/note/note_entry_view.dart';
-import 'package:prudence/views/note/widgets/note_tile_view.dart';
-import 'package:prudence/views/note/widgets/section_header.dart';
-import 'package:prudence/views/shared/page_appbar.dart';
+import 'package:prudence/src/core/utils/colors.dart';
+import 'package:prudence/src/core/utils/helper_functions.dart';
+import 'package:prudence/src/core/utils/sizes.dart';
+import 'package:prudence/src/models/note/dummy_note_sum.dart';
+import 'package:prudence/src/views/note/note_entry_view.dart';
+import 'package:prudence/src/views/note/widgets/note_tile_view.dart';
+import 'package:prudence/src/views/note/widgets/section_header.dart';
+import 'package:prudence/src/views/shared/page_appbar.dart';
 
 class NoteListView extends StatefulWidget {
   const NoteListView({super.key});

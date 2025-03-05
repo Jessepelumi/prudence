@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:prudence/core/themes/text_theme.dart';
-import 'package:prudence/core/utils/colors.dart';
+import 'package:prudence/src/core/themes/text_theme.dart';
+import 'package:prudence/src/core/utils/colors.dart';
 
 class AppThemeData {
   AppThemeData._();

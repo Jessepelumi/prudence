@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
-import 'package:prudence/core/utils/colors.dart';
-import 'package:prudence/core/utils/helper_functions.dart';
-import 'package:prudence/core/utils/sizes.dart';
-import 'package:prudence/views/shared/custom_appbar.dart';
+import 'package:prudence/src/core/utils/colors.dart';
+import 'package:prudence/src/core/utils/helper_functions.dart';
+import 'package:prudence/src/core/utils/sizes.dart';
+import 'package:prudence/src/views/shared/custom_appbar.dart';
 
 class NoteEntry extends StatelessWidget {
   const NoteEntry({super.key});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:prudence/core/utils/colors.dart';
-import 'package:prudence/core/utils/helper_functions.dart';
+import 'package:prudence/src/core/utils/colors.dart';
+import 'package:prudence/src/core/utils/helper_functions.dart';
 
 class ShadowStyle {
   final BuildContext context;

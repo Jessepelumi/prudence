@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:prudence/core/utils/sizes.dart';
+import 'package:prudence/src/core/utils/sizes.dart';
 
 class NoteSectionHeader extends StatefulWidget {
   const NoteSectionHeader({

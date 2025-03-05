@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
-import 'package:prudence/core/utils/colors.dart';
-import 'package:prudence/core/utils/sizes.dart';
+import 'package:prudence/src/core/utils/colors.dart';
+import 'package:prudence/src/core/utils/sizes.dart';
 
 class NoteTile extends StatelessWidget {
   const NoteTile({

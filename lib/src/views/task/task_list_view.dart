@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
-import 'package:prudence/core/utils/sizes.dart';
-import 'package:prudence/views/shared/page_appbar.dart';
+import 'package:prudence/src/core/utils/sizes.dart';
+import 'package:prudence/src/views/shared/page_appbar.dart';
 
 class TaskListView extends StatelessWidget {
   const TaskListView({super.key});

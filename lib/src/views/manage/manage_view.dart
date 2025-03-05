@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:prudence/views/shared/page_appbar.dart';
+import 'package:prudence/src/views/shared/page_appbar.dart';
 
 class ManageView extends StatelessWidget {
   const ManageView({super.key});

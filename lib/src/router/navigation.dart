@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
-import 'package:prudence/core/utils/colors.dart';
-import 'package:prudence/core/utils/helper_functions.dart';
-import 'package:prudence/router/navigation_provider.dart';
-import 'package:prudence/views/dashboard/dashboard_view.dart';
-import 'package:prudence/views/manage/manage_view.dart';
-import 'package:prudence/views/note/note_list_view.dart';
-import 'package:prudence/views/task/task_list_view.dart';
+import 'package:prudence/src/core/utils/colors.dart';
+import 'package:prudence/src/core/utils/helper_functions.dart';
+import 'package:prudence/src/router/navigation_provider.dart';
+import 'package:prudence/src/views/dashboard/dashboard_view.dart';
+import 'package:prudence/src/views/manage/manage_view.dart';
+import 'package:prudence/src/views/note/note_list_view.dart';
+import 'package:prudence/src/views/task/task_list_view.dart';
 
 class Navigation extends ConsumerWidget {
   const Navigation({super.key});
@@ -46,10 +46,10 @@ class Navigation extends ConsumerWidget {
             ),
             child: const NavigationDestination(
               icon: PhosphorIcon(
-                PhosphorIconsBold.squaresFour,
+                PhosphorIconsBold.houseSimple,
               ),
               selectedIcon: PhosphorIcon(
-                PhosphorIconsFill.squaresFour,
+                PhosphorIconsFill.houseSimple,
               ),
               label: "Home",
             ),
@@ -106,12 +106,12 @@ class Navigation extends ConsumerWidget {
             ),
             child: const NavigationDestination(
               icon: PhosphorIcon(
-                PhosphorIconsBold.nut,
+                PhosphorIconsBold.gear,
               ),
               selectedIcon: PhosphorIcon(
-                PhosphorIconsFill.nut,
+                PhosphorIconsFill.gear,
               ),
-              label: "Manage",
+              label: "Settings",
             ),
           ),
         ],
