@@ -36,6 +36,7 @@ class Navigation extends ConsumerWidget {
           ref.read(navigationProvider.notifier).update((state) => value);
         },
         destinations: [
+          // home
           NavigationBarTheme(
             data: NavigationBarThemeData(
               labelTextStyle: WidgetStateProperty.resolveWith(
@@ -55,7 +56,7 @@ class Navigation extends ConsumerWidget {
             ),
           ),
 
-          // second
+          // tasks
           NavigationBarTheme(
             data: NavigationBarThemeData(
               labelTextStyle: WidgetStateProperty.resolveWith(
@@ -75,7 +76,7 @@ class Navigation extends ConsumerWidget {
             ),
           ),
 
-          // third
+          // notes
           NavigationBarTheme(
             data: NavigationBarThemeData(
               labelTextStyle: WidgetStateProperty.resolveWith(
@@ -95,7 +96,7 @@ class Navigation extends ConsumerWidget {
             ),
           ),
 
-          // fourth
+          // settings
           NavigationBarTheme(
             data: NavigationBarThemeData(
               labelTextStyle: WidgetStateProperty.resolveWith(
