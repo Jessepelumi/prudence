@@ -8,6 +8,7 @@ import 'package:prudence/src/views/note/note_entry_view.dart';
 import 'package:prudence/src/views/note/widgets/note_tile_view.dart';
 import 'package:prudence/src/views/note/widgets/section_header.dart';
 import 'package:prudence/src/views/shared/page_appbar.dart';
+import 'package:prudence/src/views/shared/search_container.dart';
 
 class NoteListView extends StatefulWidget {
   const NoteListView({super.key});
@@ -29,130 +30,75 @@ class _NoteListViewState extends State<NoteListView> {
   Widget build(BuildContext context) {
     final dark = HelperFunctions.isDarkMode(context);
 
-    final List<NoteSummary> summaries = NoteSummary.noteSummary;
+    //final List<NoteSummary> summaries = NoteSummary.noteSummary;
 
     return Scaffold(
-      appBar: PageAppbar(
-        title: "Notes",
-        actions: [
-          Padding(
-            padding: const EdgeInsets.all(medium),
-            child: GestureDetector(
-              onTap: () {},
-              child: const PhosphorIcon(
-                PhosphorIconsBold.list,
-              ),
-            ),
-          ),
-        ],
-      ),
-      body: SingleChildScrollView(
+      body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: medium),
           child: Column(
             children: [
-              NoteSectionHeader(
-                month: "October, 2024",
-                isCollapsed: isCollapsed,
-                onToggle: toggleCollapse,
-              ),
-              if (!isCollapsed)
-                Container(
-                  padding: const EdgeInsets.all(medium),
-                  decoration: BoxDecoration(
-                    color: dark ? darkGrey : lightGrey,
-                    //boxShadow: [ShadowStyle(context).customShadow],
-                    borderRadius: const BorderRadius.all(
-                      Radius.circular(small),
-                    ),
-                  ),
-                  child: Column(
-                    children: List.generate(summaries.length, (index) {
-                      final summary = summaries[index];
-                      return Column(
-                        children: [
-                          NoteTile(
-                            title: summary.title,
-                            details: summary.detail,
-                            timeStamp: summary.timeStamp,
-                            onTap: () {},
+              // header - search and notification
+              Row(
+                children: [
+                  // search field
+                  const SearchContainer(hintText: "Search notes"),
+                  const SizedBox(width: medium),
+
+                  // notification icon
+                  Stack(
+                    clipBehavior: Clip.none,
+                    children: [
+                      GestureDetector(
+                        behavior: HitTestBehavior.opaque,
+                        child: const PhosphorIcon(
+                          PhosphorIconsRegular.bellSimple,
+                        ),
+                      ),
+
+                      // notification dot
+                      Positioned(
+                        top: extraSmall / 2,
+                        right: extraSmall / 1.5,
+                        child: Container(
+                          width: small,
+                          height: small,
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: red,
                           ),
-                          if (index != summaries.length - 1) const Divider(),
-                        ],
-                      );
-                    }),
+                        ),
+                      ),
+                    ],
                   ),
+                ],
+              ),
+              const SizedBox(height: medium),
+
+              // notes list
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Text("Notes"),
                 ),
-              // const NoteSectionHeader(month: "September, 2024"),
-              // Container(
-              //   padding: const EdgeInsets.all(medium),
-              //   decoration: BoxDecoration(
-              //     color: dark ? darkGrey : lightGrey,
-              //     //boxShadow: [ShadowStyle(context).customShadow],
-              //     borderRadius: const BorderRadius.all(
-              //       Radius.circular(small),
-              //     ),
-              //   ),
-              //   child: Column(
-              //     children: List.generate(summaries.length, (index) {
-              //       final summary = summaries[index];
-              //       return Column(
-              //         children: [
-              //           NoteTile(
-              //             title: summary.title,
-              //             details: summary.detail,
-              //             timeStamp: summary.timeStamp,
-              //             onTap: () {},
-              //           ),
-              //           if (index != summaries.length - 1) const Divider(),
-              //         ],
-              //       );
-              //     }),
-              //   ),
-              // ),
-              // const NoteSectionHeader(month: "August, 2024"),
-              // Container(
-              //   padding: const EdgeInsets.all(medium),
-              //   decoration: BoxDecoration(
-              //     color: dark ? darkGrey : lightGrey,
-              //     //boxShadow: [ShadowStyle(context).customShadow],
-              //     borderRadius: const BorderRadius.all(
-              //       Radius.circular(small),
-              //     ),
-              //   ),
-              //   child: Column(
-              //     children: List.generate(summaries.length, (index) {
-              //       final summary = summaries[index];
-              //       return Column(
-              //         children: [
-              //           NoteTile(
-              //             title: summary.title,
-              //             details: summary.detail,
-              //             timeStamp: summary.timeStamp,
-              //             onTap: () {},
-              //           ),
-              //           if (index != summaries.length - 1) const Divider(),
-              //         ],
-              //       );
-              //     }),
-              //   ),
-              // ),
+              ),
             ],
           ),
         ),
       ),
 
-      // new note
+      // new note button
       floatingActionButton: FloatingActionButton(
+        shape: const CircleBorder(),
         onPressed: () => Navigator.push(
           context,
           MaterialPageRoute(
             builder: (context) => const NoteEntry(),
           ),
         ),
-        backgroundColor: dark ? darkGrey : lightGrey,
-        child: const PhosphorIcon(
+        backgroundColor: dark ? lightGrey : darkGrey,
+        child: PhosphorIcon(
           PhosphorIconsBold.plus,
+          color: dark ? darkGrey : lightGrey,
         ),
       ),
     );
